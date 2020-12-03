@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .named {
+            background: red;
+        }
+
+        .rgba {
+            background: rgba(255, 0, 0, .5);
+        }
+
+        .hsla {
+            /* 1st 0-360, 2nd 0 (gray)-100% (full color) 3th 0-100% (lightness), 4th 0-1 (transparancy) */
+            background: hsla(250, 100%, 50%, 0.5);
+        }
+
+        .image {
+            background: url(img100.png) repeat-x;
+        }
+
+        .gradient {
+            background: linear-gradient(90deg, red, green, yellow, blue);
+        }
+
+        .translate {
+            position: absolute;
+            top: 250px;
+            transform: translate(50px, 10px)
+        }
+
+        .rotate {
+            position: absolute;
+            top: 400px;
+            transform-origin:300px 300px;
+            transform: rotateZ(45deg);
+            width: 300px;
+            height: 80px;
+            color: red;
+        }
+
+        .skew {
+            position: absolute;
+            top: 300px;
+            left: 100px;
+            transform: skew(30deg, 5deg);
+            width: 300px;
+            height: 100px;
+            color: green;
+        }
+
+        .animationcontainer {
+            position: absolute;
+            overflow: hidden;
+            background-color: black;
+            top: 500px;
+            height: 400px;
+            width: 400px;
+            perspective: 700px;
+            perspective-origin: 200px 500px;
+        }
+
+        .animation {
+            color: gold;
+            transform-origin: 200px 400px;
+            animation: scroll 60s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: rotateX(45deg) translateY(400px);
+            }
+
+            100% {
+                transform: rotateX(45deg) translateY(-1000px);
+            }
+        }
+
+        p {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="named">Hello world</h1>
+    <h1 class="rgba">Hello world</h1>
+    <h1 class="hsla">Hello world</h1>
+    <h1 class="image">Hello world</h1>
+    <h1 class="gradient">Hello world</h1>
+    <h1 class="translate">Hello world</h1>
+    <h1 class="rotate">Hello world</h1>
+    <h1 class="skew">Hello world</h1>
+    <div class="animationcontainer">
+        <div class="animation">
+            <h1>Episode I</h1>
+            <h1>THE PHANTOM MENACE</h1>
+            <p>Turmoil has engulfed the Galactic Republic. The taxation of trade routes to outlying star systems is in dispute.</p>
+            <p>Hoping to resolve the matter with a blockade of deadly battleships, the greedy Trade Federation has stopped all shipping to the small planet of Naboo.</p>
+            <p>While the congress of the Republic endlessly debates this alarming chain of events, the Supreme Chancellor has secretly dispatched two  Jedi Knights, the guardians of peace and justice in the galaxy, to settle the conflict...</p>
+        </div>
+    </div>
+</body>
+</html>

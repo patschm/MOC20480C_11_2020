@@ -1,0 +1,36 @@
+﻿/* 
+                id 1000   
+                class 100
+                element 10
+            */
+
+
+input[title |="text"] {
+    background-color: green;
+    color: yellow;
+}
+
+h1 {
+    background-color: red !important;
+    color: yellow;
+}
+
+div.hoi {
+    background-color: red;
+    color: green;
+}
+
+    div.hoi#x {
+        background-color: red;
+        color: green;
+    }
+
+.bla {
+    background-color: green;
+    color: yellow;
+}
+
+#nr {
+    background-color: #00f;
+    color: #f00;
+}

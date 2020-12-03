@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <fieldset>
+        <legend>Cookies</legend>
+        <input type="text" id="cookie" />
+        <button id="btnCookie">Store</button>
+    </fieldset>
+
+
+    <fieldset>
+        <legend>SessionStorage</legend>
+        <input type="text" id="session" />
+        <button id="btnSession">Store</button>
+    </fieldset>
+    <fieldset>
+        <legend>Local Storage</legend>
+        <input type="text" id="local" />
+        <button id="btnLocal">Store</button>
+    </fieldset>
+    <fieldset>
+        <legend>Structured Storage</legend>
+        First name:<input type="text" id="fname" /><br />
+        Last name:<input type="text" id="lname" /><br />
+        Age:<input type="number" id="age" /><br />
+        <button id="btnDB">Store</button>
+        <ul id="list"></ul>
+    </fieldset>
+    <script src="indexdb.js" type="module"></script>
+    <script src="storage.js" type="module"></script>
+
+</body>
+</html>

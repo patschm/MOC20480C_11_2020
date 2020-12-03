@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        canvas {
+            border: 2px solid darkblue;
+            background-color: lightgreen;
+            /* Dont use css to set the sizes of the canvas. It results in blurry images*/
+            /*width:800px;
+            height:600px;*/
+        }
+    </style>
+</head>
+<body>
+    <h1>Canvas</h1>
+    <canvas id="blackboard" width="800" height="600">
+    </canvas>
+
+
+    <script type="text/javascript">
+        function simpleShapes() {
+            var canvas = document.getElementById("blackboard");
+            var ctx = canvas.getContext("2d");
+
+            // Draw order is very important
+            ctx.strokeStyle = "blue";
+            ctx.lineWidth = 3;
+            ctx.fillStyle = "red";
+            // Rectangle
+            ctx.beginPath();
+
+            ctx.rect(10, 10, 200, 100);
+            ctx.closePath();
+
+            // Blit everything on the screen
+            ctx.fill(); // fill the circle
+            ctx.stroke(); // draw the circle
+
+            // Circle
+            ctx.beginPath();
+            ctx.arc(60, 200, 50, 0, 360);
+            ctx.closePath();
+
+            ctx.fill(); // fill the circle
+            ctx.stroke(); // draw the circle
+        }
+        function complexShape() {
+            var canvas = document.getElementById("blackboard");
+            var ctx = canvas.getContext("2d");
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = "blue"
+            ctx.fillStyle = "red";
+
+            ctx.beginPath();
+            ctx.moveTo(10, 300);
+            ctx.lineTo(110, 390);
+            ctx.lineTo(220, 300);
+            ctx.closePath();
+
+            ctx.fill();
+            ctx.stroke();
+
+        }
+
+        function lineairGradient() {
+            var canvas = document.getElementById("blackboard");
+            var ctx = canvas.getContext("2d");
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = "blue"
+            ctx.fillStyle = "red";
+
+            var lg = ctx.createLinearGradient(300, 10, 500, 10);
+            lg.addColorStop(0, "red");
+            lg.addColorStop(0.5, "green");
+            lg.addColorStop(1, "blue");
+
+            ctx.beginPath();
+            ctx.fillStyle = lg;
+            ctx.rect(300, 10, 200, 100);
+            ctx.fill();
+
+        }
+        function radialGradient() {
+            var canvas = document.getElementById("blackboard");
+            var ctx = canvas.getContext("2d");
+
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = "blue"
+            ctx.fillStyle = "red";
+            // create radial gradient
+            var grd = ctx.createRadialGradient(400, 200, 50, 375, 200, 20);
+            grd.addColorStop(0, 'red');
+            grd.addColorStop(1, 'yellow');
+
+            ctx.beginPath();
+            ctx.fillStyle = grd;
+            ctx.arc(400, 200, 50, 0, 360);
+            ctx.fill();
+        }
+
+        function animate() {
+            var canvas = document.getElementById("blackboard");
+            var ctx = canvas.getContext("2d");
+            let angle = 0;
+
+            setInterval(function () {
+                // Clear canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                // Store current state
+                ctx.save();
+                // set properties
+                ctx.strokeStyle = "blue";
+                ctx.lineWidth = 3;
+                ctx.fillStyle = "red";
+                // Set canvas origin to center rectangle
+                ctx.translate(225, 250);
+                // rotate canvas at that point
+                ctx.rotate(++angle * Math.PI / 180);
+                // set origin to left top corner of rectangle
+                ctx.translate(-25, -50);
+                // Start drawing
+                ctx.beginPath();
+                ctx.rect(0, 0, 50, 100);
+                ctx.fill();
+                ctx.stroke();
+                // Restore canvas
+                ctx.restore();
+            }, 32);
+        }
+
+        class Thing {
+            constructor(x, y, angle, speed = 1) {
+                this.X = x;
+                this.Y = y;
+                this.Angle = angle;
+                this.Width = 50;
+                this.Height = 100
+                this.Speed = speed;
+            }
+        }
+
+        function animateMultiple() {
+            var canvas = document.getElementById("blackboard");
+            var ctx = canvas.getContext("2d");
+            var things = [new Thing(100, 100, 75, 2),
+                new Thing(200, 100, 24, 5),
+                new Thing(300, 400, 80, 3),
+                new Thing(600, 100, 49, 1),
+                new Thing(500, 200, 50, 10),
+                new Thing(100, 300, 125, 6),
+                new Thing(500, 150, 240, 9),
+                new Thing(600, 400, 225, 1),
+                new Thing(500, 350, 175, 2)];
+
+            
+            window.setInterval(() => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < things.length; i++) {
+                    drawThing(things[i]);
+                }
+
+            }, 36);
+
+            function drawThing(thing) {
+                ctx.save();
+                ctx.strokeStyle = "blue";
+                ctx.lineWidth = 3;
+                ctx.fillStyle = "red";
+                ctx.translate(thing.X + thing.Width / 2, thing.Y + thing.Height / 2);
+                let angle = (++thing.Angle * thing.Speed) * Math.PI/180
+                ctx.rotate(angle);
+                ctx.translate(-thing.Width / 2, -thing.Height/2);
+                ctx.beginPath();
+                ctx.rect(0, 0, thing.Width, thing.Height);
+                ctx.fill();
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+
+        //simpleShapes();
+        //complexShape();
+        //lineairGradient();
+        //radialGradient();
+        //animate();
+        animateMultiple();
+    </script>
+</body>
+</html>

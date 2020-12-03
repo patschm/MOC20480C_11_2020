@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        #h1
+        {
+            font-size:32px;
+            transition:font-size 1s;
+            transition-delay:200ms;
+            transition-timing-function:ease-in-out;
+        }
+            #h1:hover
+            {
+                font-size:48px;
+            }
+    </style>
+</head>
+<body>
+    <h1 id="h1">Hello world</h1>
+
+    <script>
+
+        var elem = document.getElementById("h1");
+        elem.addEventListener("transitionstart", function () { this.style.backgroundColor = "#f00"; }, true);
+        elem.addEventListener("transitionend", function () { this.style.backgroundColor = "#fff"; }, true);
+
+    </script>
+</body>
+</html>

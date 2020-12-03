@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <fieldset>
+        <legend>Form</legend>
+        <form id="loginForm" action="index.html" method="get">
+            Email:
+            <input name="email" type="email" placeholder="Email address" autofocus="autofocus" />
+            <br />
+            Password:
+            <input name="password" type="password" autocomplete="off" />
+            <br />
+            Age:
+            <input name="age" type="number" min="0" max="122" />
+            <br />
+            Salary:
+            <input name="salary" type="range" min="0" max="100000" step="100" />
+            <br />
+            <input type="submit" value="Post"/>
+        </form>
+    </fieldset>
+    <hr />
+    <input id="ageCategory" name="ageCategory" list="ageRanges" />
+    <datalist id="ageRanges">
+        <option value="Under twos" />
+        <option value="2 - 7" />
+        <option value="8 - 12" />
+        <option value="13-17" />
+        <option value="Adult" />
+    </datalist>
+    <hr />
+
+    <textarea cols="80" rows="5" placeholder="Enter a short description of your car" maxlength="399"></textarea>
+
+    <hr />
+    <select id="carManufacturer" name="carManufacturer">
+        <optgroup label="European">
+            <option value="volvo">Volvo</option>
+            <option value="audi">Audi</option>
+        </optgroup>
+        <optgroup label="American">
+            <option value="chrysler">Chrysler</option>
+            <option value="ford">Ford</option>
+        </optgroup>
+    </select>
+</body>
+</html>

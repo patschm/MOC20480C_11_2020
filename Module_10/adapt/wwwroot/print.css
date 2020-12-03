@@ -1,0 +1,23 @@
+﻿
+h1
+{
+    font-family: 'Segoe UI';
+    font-size: 24pt;
+}
+
+.com
+{
+    display: none;
+}
+
+@page {
+    size:A4;
+}
+
+@page :left {
+    margin-left:2pt;
+}
+@page :right{
+    margin-right: 4pt;
+}
+

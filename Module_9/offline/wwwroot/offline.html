@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+    <title></title>
+    <script src="javascript.js"></script>
+</head>
+<body>
+    <form action="/" method="get">
+        <button type="submit">Refresh</button>
+    </form>
+    
+    <!--<script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/cache-worker.js').then(function (registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function (err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>-->
+</body>
+</html>

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        /* ':' for pseudo selectors
+            '::' for pseudo elements
+        */
+        p::first-letter {
+            font-family: 'Comic Sans MS';
+            font-size: 24px;
+        }
+
+        p::selection {
+            color: rgba(0, 255, 0, 1);
+        }
+
+        /* Order is important*/
+        a:link {
+            color: red;
+        }
+        a:visited {
+            color: mediumpurple;
+        }
+        a:focus {
+            color: yellow;
+        }
+        a:hover {
+            font-size: 36px;
+        }
+        a:active {
+            color: green;
+        }
+
+
+        input:enabled {
+            background-color: rgba(0, 255, 0, .2);
+        }
+
+        input:disabled {
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+
+        li:nth-child(2n+3) {
+            color: red;
+        }
+
+        div.triangle::after {
+            position: absolute;
+            display: block;
+            height: 100px;
+            width: 100px;
+            border-top: 6rem solid #f00;
+            border-left: 6rem solid #0f0;
+            content: "cxvcxv";
+        }
+    </style>
+</head>
+<body>
+    <p>Hello World</p>
+    <p>Hello World</p>
+    <hr />
+    this is some text with this <a href="index.html">fancy, but annoying link</a> to myself
+    <hr />
+    <input type="text" placeholder="enter some text" />
+    <input type="text" placeholder="enter some text" disabled="disabled" />
+    <hr />
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+    <hr />
+    <div class="triangle">Dit is de div zelf</div>
+</body>
+</html>

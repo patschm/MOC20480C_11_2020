@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        svg
+        {
+            border: solid 2px #0026ff;
+            background-color: #c4c3c3;
+            width: 1000px;
+            height: 600px;
+        }
+
+        .shape
+        {
+            stroke-width: 3;
+            stroke: blue;
+            fill: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>SVG</h1>
+    <svg xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <marker id="arrowHead" viewBox="0, 0, 10, 10" refX="10" refY="5" markerUnits="strokeWidth" orient="auto" markerWidth="10" markerHeight="10">
+                <line x1="0" y1="0" x2="10" y2="5" stroke="#000"></line>
+                <line x1="0" y1="10" x2="10" y2="5" stroke="#000"></line>
+            </marker>
+
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0.2" stop-color="yellow" />
+                <stop offset="0.5" stop-color="green" />
+                <stop offset="1.0" stop-color="red" />
+            </linearGradient>
+
+
+            <radialGradient id="gradient2" fx="0.3" fy="0.3">
+                <stop offset="0" stop-color="blue" />
+                <stop offset="0.5" stop-color="yellow" />
+                <stop offset="0.7" stop-color="red" />
+            </radialGradient>
+        </defs>
+
+        <text x="15" y="80" font-family="Segoe UI">X</text>
+        <line x1="0" y1="90" x2="50" y2="90" stroke="#000" marker-end="url(#arrowHead)"></line>
+        <text x="110" y="30" font-family="Segoe UI">Y</text>
+        <line x1="100" y1="0" x2="100" y2="50" stroke="#000" marker-end="url(#arrowHead)"></line>
+        <rect class="shape" x="50" y="50" width="100" height="80"></rect>
+
+        <circle class="shape" cx="100" cy="200" r="50"></circle>
+        <ellipse class="shape" cx="100" cy="325" rx="75" ry="50"></ellipse>
+
+        <polygon points="200 70, 240 40, 280 70, 280 160, 240 130, 200 160" class="shape" />
+
+        <polyline points="200 200, 220 200, 225 190, 235 210, 245 190, 255 210, 265 190, 275 210, 280 200, 295 200" fill="none" stroke="blue" />
+
+        <!--
+        M: Move to a new location, without drawing a line.
+        L: Draw a line from the current location to a new location.
+        A: Draw an elliptical arc.
+        Q: Draw a quadratic Bezier curve. A quadratic Bezier curve is a curve that joins two points, and has one turning point along its journey.
+        C: Draw a cubic Bezier curve. A cubic Bezier curve is a curve that joins two points, and has two turning points along its journey.
+        Z: Close the current path by connecting the last point back to the first point.
+        -->
+        <path d="M 200 250 L 300 350 L 400 250 Z" class="shape" />
+
+        <rect x="400" y="50" width="200" height="100" fill="url(#gradient1)"></rect>
+        <circle cx="500" cy="250" r="50" fill="url(#gradient2)"></circle>
+
+
+        <path id="wavyPath1" fill="none" stroke="green" stroke-width="5"
+            d="M 0 500 C 100 600 200 400 300 500 C 400 600 500 400 600 500 C 700 600 800 400 900 500" />
+        <text font-size="46" fill="red" font-family="Verdana">
+            <textPath xlink:href="#wavyPath1">
+		            Hello World Hello World
+		        </textPath>
+        </text>
+    </svg>
+</body>
+</html>

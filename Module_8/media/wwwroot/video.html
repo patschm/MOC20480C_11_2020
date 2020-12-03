@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <audio controls="controls" autoplay="autoplay" loop="loop">
+        <source src="NotifyPopup.mp3" type="audio/mp3" />
+    </audio>
+    <hr />
+    <video poster="Def text" controls="controls" autoplay="autoplay" loop="loop">
+        <source src="big_buck_bunny_trailer_480p.webm" type="video/webm" />
+        <source src="big_buck_bunny_trailer_480p_high.mp4" type="video/mp4" />
+        <source src="big_buck_bunny_trailer_480p_baseline.mp4" type="video/mp4" />
+        Cannot play video. Download video
+        <a href="support.html">here</a>
+    </video>
+    <hr />
+    <video src="big_buck_bunny_trailer_480p_high.mp4" id="vid"></video><br />
+    <button id="startstop">Start</button>
+
+    <script>
+        (function ()
+        {
+            var video = document.getElementById("vid");
+            var btn = document.getElementById("startstop");
+            btn.addEventListener("click", onStartStop, false);
+
+            
+
+            function onStartStop()
+            {
+                if (!video.paused)
+                {
+                    video.pause();
+                    btn.innerText = "Start";
+                }
+                else
+                {
+                    video.play();
+                    btn.innerText = "Stop";
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

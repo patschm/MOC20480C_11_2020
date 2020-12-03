@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <button id="load">Laden...</button>
+    <div id="results"></div>
+
+    <script>
+        //document.getElementById("load").addEventListener("click", evt => {
+        //    var xhr = new XMLHttpRequest();
+        //    xhr.onreadystatechange = () => {
+        //        if (xhr.readyState === 4) {
+        //            if (xhr.status == 200) {
+        //                let arr = JSON.parse(xhr.responseText);
+        //                for (let i = 0; i < arr.length; i++) {
+        //                    fillDivje(arr[i]);
+        //                }
+        //            }
+        //        }
+        //    };
+
+        //    xhr.open("get", "schedule.json");
+        //    xhr.setRequestHeader("Accept", "application/json,*.*");
+            
+        //    xhr.send();
+        //});
+
+        //document.getElementById("load").addEventListener("click", evt => {
+        //    fetch("schedule.json").then(data => {
+        //        if (data.ok) {
+        //            data.json().then(arr => {
+        //                for (let i = 0; i < arr.length; i++) {
+        //                    fillDivje(arr[i]);
+        //                }
+        //            });
+        //        }
+        //    }, err => { });
+        //});
+
+        document.getElementById("load").addEventListener("click", async evt => {
+            let data = await fetch("schedule.json");
+            if (data.ok) {
+                let arr = await data.json();
+                for (let i = 0; i < arr.length; i++) {
+                    fillDivje(arr[i]);
+                }
+            }
+ 
+        });
+
+        var res = document.getElementById("results");
+        function fillDivje(data) {
+            let h2 = document.createElement("h2");
+            h2.textContent = data.title;
+            res.appendChild(h2);
+        }
+
+    </script>
+</body>
+</html>

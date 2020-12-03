@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        label {
+            display: inline-block;
+            width: 75px;
+            vertical-align: top;
+        }
+
+        input:required {
+            border-color: #808080;
+        }
+
+        input:invalid {
+            border-color: #ae00ff;
+        }
+
+        input:valid {
+            border-color: #0f0;
+        }
+    </style>
+</head>
+<body>
+    <form action="/" method="post">
+        <label for="Name">Name:</label>
+        <input id="Name" name="Name" type="text" required="required" /><br /><br />
+        <label for="Age">Age:</label>
+        <input id="Age" name="Age" type="number" title="Age" required="required"  min="18" max="65" /><br /><br />
+        <label for="Mobile">Mobile:</label>
+        <input id="Mobile" name="Mobile" type="tel" title="Mobile" pattern="^06(-)?\d{8}$" required="required" /><br /><br />
+        <label for="EMail">Email:</label>
+        <input id="EMail" type="email" name="EMail" value="" required="required" title="E-Mail" /><br /><br />
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

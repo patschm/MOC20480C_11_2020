@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        /* Defines an outline box but does not add up to the sotal size of the box. */
+        .outline {
+            margin: 50px;
+            width: 300px;
+            border: 5px solid red;
+            outline: 20px solid green; /* margin that doesn't take space */
+        }
+
+        .presentation {
+            width: 300px;
+            border: 2px solid blue;
+            border-radius: 10px;
+        }
+
+        .column {
+            border: 2px solid purple;
+            column-count: 3;
+            column-gap: 10px;
+            column-rule: 2px solid green;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .inline {
+            display: inline;
+        }
+
+        .positioned {
+            position: absolute;
+            left: 50px;
+            top: 550px;
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+
+        .table {
+            display: table;
+        }
+
+            .table .row {
+                display: table-row;
+            }
+
+                .table .row .cell {
+                    display: table-cell;
+                    border: #737373 solid 1px;
+                }
+
+        .flexbox {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+            .flexbox .box1 {
+                order: 1;
+                flex: 1;
+                background-color: rgba(255, 0,0, 0.3);
+                width: 200px;
+                height: 200px;
+            }
+
+            .flexbox .box2 {
+                order: 0;
+                flex: 2;
+                background-color: rgba(0, 255,0, 0.3);
+                width: 200px;
+                height: 200px;
+            }
+
+            .flexbox .box3 {
+                order: 2;
+                flex: 1;
+                background-color: rgba(0, 0, 255, 0.3);
+                width: 200px;
+                height: 200px;
+            }
+
+            .flexbox .box4 {
+                order: 4;
+                flex: auto;
+                background-color: rgba(150, 150,150, 0.3);
+                width: 200px;
+                height: 200px;
+            }
+    </style>
+</head>
+<body>
+    <div class="outline">
+        <h2>Hello World</h2>
+    </div>
+    <div class="outline">
+        <h2>Hello World</h2>
+    </div>
+    <h2 class="presentation">Hello World</h2>
+    <div class="column">
+        <p>Hello world</p>
+        <h1>Hello world</h1>
+        <div>Hello world</div>
+        <p>Hello world</p>
+        <h1>Hello world</h1>
+        <div>Hello world</div>
+        <p>Hello world</p>
+        <h1>Hello world</h1>
+        <div>Hello world</div>
+        <p>Hello world</p>
+        <h1>Hello world</h1>
+        <div>Hello world</div>
+    </div>
+    <hr />
+    blablabla
+    <h1 class="block">block</h1>
+    blablabla
+    <br />
+    blablabla
+    <h1 class="inline">inline</h1>
+    blablabla
+    <br />
+    blablabla
+    <h1 class="positioned">positioned</h1>
+    blablabla
+    <br />
+    <hr />
+    <div class="table">
+        <div class="row">
+            <div class="cell">Cell 1</div>
+            <div class="cell">Cell 2</div>
+            <div class="cell">Cell 3</div>
+        </div>
+        <div class="row">
+            <div class="cell">Cell 1</div>
+            <div class="cell">Cell 2</div>
+            <div class="cell">Cell 3</div>
+        </div>
+    </div>
+    <br />
+    <div class="flexbox">
+        <div class="box1">Hello world 1</div>
+        <div class="box2">Hello world 2</div>
+        <div class="box3">Hello world 3</div>
+        <div class="box4">Hello world 4</div>
+    </div>
+</body>
+</html>

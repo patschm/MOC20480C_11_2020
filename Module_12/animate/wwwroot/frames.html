@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        #frame
+        {
+            position: absolute;
+            width: 410px;
+            height: 300px;
+            border: solid 5px black;
+            background-color: #0c900b;
+            top: 100px;
+        }
+
+        .ball
+        {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius:100%;
+        }
+
+        @keyframes ballmovement
+        {
+            0%
+            {
+                left: 15px;
+                top: 105px;
+                background-color: yellow;
+            }
+
+            25%
+            {
+                left: 100px;
+                top: 380px;
+            }
+
+            50%
+            {
+                left: 200px;
+                top: 105px;
+            }
+
+            75%
+            {
+                left: 300px;
+                top: 380px;
+            }
+
+            100%
+            {
+                left: 400px;
+                top: 105px;
+                background-color: purple;
+            }
+        }
+
+        .animate
+        {
+            animation-name: ballmovement;
+            animation-duration: 12s;
+            animation-delay: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: 1;
+            animation-direction: alternate;
+        }
+    </style>
+</head>
+<body>
+    <div id="frame"></div>
+    <div class="ball animate"></div>
+    <div id="ball2" class=""></div>
+    <button id="start">Start</button>
+
+    <script>
+        (function ()
+        {
+            var iterationCount = 0;
+
+            document.getElementById("start").addEventListener("click", onstart, true);
+            var ball = document.getElementById("ball2");
+            ball.addEventListener("animationstart", (e) => console.log("start"), false);
+            ball.addEventListener("animationend", (e) => console.log("end"), false);
+            ball.addEventListener('animationiteration', (e) => {
+                iterationCount++;
+                console.log(`Animation iteration count: ${iterationCount}`);
+            });
+            function onstart()
+            {
+                ball.classList.add("ball");
+                ball.classList.add("animate");
+            }
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿header {
+    font-family: 'Comic Sans MS', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:2rem;
+    font-weight:200;
+    font-style:italic;
+}
+article {
+    //background-image:url('april-meyer.jpg');
+    background-repeat:repeat;
+   /* background-color:rgb(255, 0, 0);*/
+    opacity:1;
+}
+figure {
+
+    opacity:  1;
+}
+p {
+    letter-spacing:2px;
+    line-height:20px;
+    text-align:right;
+}
+li {
+    text-decoration:underline;
+}
+
+#main {
+    border: 2px solid black;
+}
+
+#content {
+    border: 1px solid red;
+    margin:20px 10px;
+    padding:20px 10px;
+}
+
+.spec {
+   /* visibility:hidden;*/
+   display:normal;
+   position:absolute;
+   top:300px;
+   left:300px;
+}
+
+figcaption {
+    float:right;
+    overflow:hidden
+}

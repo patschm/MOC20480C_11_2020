@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        button
+        {
+            background-color: #0094ff;
+            width: 200px;
+            height: 100px;
+        }
+
+        #r1
+        {
+            transform: translate(100px, 10px);
+        }
+
+        #r2
+        {
+            transform: rotate(45deg);
+        }
+
+        #r3
+        {
+            transform: skew(-30deg);
+        }
+
+        #r4
+        {
+            /*
+            
+                | 1, 0.5, 0.5 |   | px |   | 1*px + 0.5*px + 0.5*px |   | 2*px |
+                | 1, 0.5, 0.5 | * | py | = | 1*py + 0.5*py + 0.5*py | = | 2*py |
+                | 0, 0  , 1   |   | pz |   | 0*pz + 0*pz + 1*pz     |   | 1*pz |
+
+                ex:
+                rect (0,100), (200, 100), (0, 200), (200, 200) => rect (0,200), (400, 200), (0, 400), (400, 400)
+                    
+            */
+            transform: matrix(1, 0.5, 0.5, 1, 0.5, 0.5);
+        }
+
+        #parent
+        {
+            perspective: 200px; /* distance from which the shape is seen. The larger the number the less the effect  */
+            perspective-origin: 100px 100px; /* Point from which the shape is looked at*/
+        }
+
+        #child1
+        {
+            background-color: #0094ff;
+            position: absolute;
+            transform: rotateY(30deg);
+            width:200px;
+        }
+
+        #child2
+        {
+            background-color: #0094ff;
+            position: absolute;            
+            transform: rotateY(30deg) translate(250px);
+            width:200px;
+        }
+    </style>
+    </head >
+    <body > 
+        <button id="r1" ></button >
+        <hr />
+        <button id="r2" ></button >
+        <hr />
+        <button id="r3"></button>
+        <hr />
+        <button id="r4"></button>
+        <hr />
+
+		<div id="parent">
+            <h1 id="child1">Hello</h1>
+            <h1 id="child2">World</h1>
+        </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        .validatedFine {
+            border-color: #0f0;
+        }
+
+        .validatedError {
+            border-color: #f00;
+        }
+    </style>
+    <script type="text/javascript">
+
+        function validate_form() {
+            var isValid = true;
+            var nameOk = CheckNameField(form1.Name.value);
+            if (!nameOk) {
+                form1.Name.className = "validatedError";
+            }
+            else {
+                form1.Name.className = "validatedFine";
+            }
+            isValid = isValid && nameOk;
+
+            var ageOk = CheckAgeField(form1.Age.value);
+            form1.Age.className = (ageOk) ? "validatedFine" : "validatedError"
+            isValid = isValid && ageOk;
+
+            var mobileOk = CheckMobileField(form1.Mobile.value);
+            form1.Mobile.className = (mobileOk) ? "validatedFine" : "validatedError"
+            isValid = isValid && mobileOk;
+
+            var emailOk = CheckMailField(form1.EMail.value);
+            form1.EMail.className = (emailOk) ? "validatedFine" : "validatedError"
+            isValid = isValid && emailOk;
+
+            return isValid;
+        }
+
+        function CheckNameField(inpText) {
+            if (isSignificant(inpText)) {
+                form1.Name.setCustomValidity("");
+                return true;
+            }
+            else {
+                form1.Name.setCustomValidity("Naam is verplicht");
+                return false;
+            }
+        }
+        function CheckAgeField(inpText) {
+            if (isAnInteger(inpText)) {
+                var _age = parseInt(inpText);
+                return _age >= 18 && _age <= 65;
+            }
+            return false;
+        }
+        function CheckMobileField(inpText) {
+            if (isSignificant(inpText)) {
+                var regMobile = /^06(-)?\d{8}$/g;
+                return regMobile.test(inpText);
+            }
+            return false;
+        }
+        function CheckMailField(inpText) {
+            if (isSignificant(inpText)) {
+                var regMobile = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/gi;
+                return regMobile.test(inpText);
+            }
+            return false;
+        }
+        function isAnInteger(text) {
+            var intTestRegex = /^\s*(\+|-)?\d+\s*$/;
+            return String(text).search(intTestRegex) != -1;
+        }
+
+        function isSignificant(text) {
+            var notWhitespaceTestRegex = new RegExp("[^\s]{1,}");
+            return String(text).search(notWhitespaceTestRegex) != -1;
+        }
+
+    </script>
+</head>
+<body>
+    <form action="index.html" method="get" onsubmit="return validate_form()" name="form1">
+        <label for="Name">Name:</label><input id="Name" name="Name" type="text" /><br />
+        <br />
+        <label for="Age">Age:</label><input id="Age" name="Age" type="number" title="Age" /><br />
+        <br />
+        <label for="Mobile">Mobile:</label><input id="Mobile" name="Mobile" type="text" title="Mobile" /><br />
+        <br />
+        <label for="EMail">Email:</label><input id="EMail" type="text" name="EMail" value="" title="E-Mail" /><br />
+        <br />
+        <button type="submit">Submit</button>
+        <br />
+        <br />
+        <label for="EMail">Free:</label><input id="free" type="text" name="Free" value="" title="Free" /><br />
+    </form>
+    <script type="text/javascript">
+        document.getElementById("free").addEventListener("input", doCheck, false);
+        function doCheck(e) {
+            alert(e.currentTarget.value);
+        }
+    </script>
+</body>
+</html>

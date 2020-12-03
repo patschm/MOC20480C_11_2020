@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        #div1 {
+            width: 210px;
+            height: 210px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" ondrop="drop(event)" ondragover="dragOver(event)" ondragleave="dragLeave(event)"></div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <img id="drag1" src="smileys.jpg" draggable="true" ondragstart="dragStart(event)" width="200" height="200">
+
+    <script type="text/javascript">
+        function dragOver(ev)
+        {
+            ev.preventDefault();
+            ev.target.style.border = "2px dashed green";
+            ev.dataTransfer.dropEffect = "move";
+        }
+
+        function dragLeave(ev) {
+            ev.preventDefault();
+            ev.target.style.border = "";
+        }
+
+        function dragStart(ev)
+        {
+            ev.dataTransfer.setData("text/plain", ev.target.id);
+            ev.dataTransfer.effectAllowed = "move";
+            ev.dataTransfer.setDragImage(document.getElementById("drag1"), 50, 50);
+        }
+
+        function drop(ev)
+        {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text/plain");
+
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</body>
+</html>

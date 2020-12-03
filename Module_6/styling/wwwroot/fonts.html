@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+
+        @font-face {
+            font-family: 'SansitaSwashed';
+            src: url('DancingScript-VariableFont_wght.ttf');
+        }
+
+        .finger {
+            font-family: 'SansitaSwashed';
+        }
+
+        /* Absolute */
+        .cm {
+            font-size: 1cm;
+        }
+
+        .inch {
+            font-size: 1in;
+        }
+
+        .pica {
+            font-size: 5pc; /* Pica = 12 points = 1/6 inch*/
+        }
+
+        .point {
+            font-size: 20pt;
+        }
+
+        .pixel {
+            font-size: 20px;
+        }
+
+        /* font related related */
+        .em {
+            font-size: 5em; /* Current font size of current element*/
+        }
+
+        .ex {
+            font-size: 5ex; /* Height of font's lowercase x-height (0.6em)*/
+        }
+
+        .ch {
+            font-size: 5ch; /* Width of the font's '0' character*/
+        }
+
+        .rem {
+            font-size: 5rem; /* Size of the font defined on the html element*/
+        }
+
+        /* Viewport related */
+        .vw {
+            font-size: 5vw; /* 5% of the viewport width */
+        }
+
+        .vh {
+            font-size: 5vh; /* 5% of the viewport height */
+        }
+
+        .vmin {
+            font-size: 5vmin; /* The smaller of vh and vw */
+        }
+
+        /* effects*/
+        .indent {
+            text-indent: 3rem;
+        }
+
+        .hyphen {
+            hyphens:auto;
+            width: 300px;
+        }
+
+        .wrap {
+            word-wrap: break-word;
+            width: 300px;
+        }
+
+        .space {
+            word-spacing: 5rem;
+        }
+
+        .shadow {
+            font-size: 36px;
+            /* x-offset, y-offset, blur, color */
+            text-shadow: 3px 10px 3px #f00;
+        }
+    </style>
+</head>
+<body>
+    <div class="finger cm">1 Centimeters: hello World</div>
+    <div class="finger inch">1 Inch: hello World</div>
+    <div class="finger pica">5 Picas: hello World</div>
+    <div class="finger point">20 Point: hello World</div>
+    <div class="finger pixel">20 Pixel: hello World</div>
+    <hr />
+    <div class="finger em">5 em: hello World</div>
+    <div class="finger ex">5 ex: hello World</div>
+    <div class="finger ch">5 ch: hello World</div>
+    <div class="finger rem">5 rem: hello World</div>
+    <hr />
+    <div class="finger vw">5 vw: hello World</div>
+    <div class="finger vh">5 vh: hello World</div>
+    <div class="finger vmin">5 vmin: hello World</div>
+    <hr />
+    <div class="finger indent">indent: hello World</div>
+    <hr />
+    <div class="finger hyphen" style="width:200px">hyphen: hello WorldhelloWorldhelloWorldhelloWorldhelloWorldhelloWorldhelloWorld</div>
+    <hr />
+    <div class="finger wrap">wrap: hello World hello World helloWorldhelloWorldhelloWorldhelloWorldhelloWorldhelloWorld</div>
+    <hr />
+    <div class="finger space">space: hello World</div>
+    <hr />
+    <div class="finger shadow">shadow: hello World</div>
+</body>
+</html>

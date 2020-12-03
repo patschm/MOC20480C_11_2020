@@ -1,0 +1,12 @@
+﻿CACHE MANIFEST
+CACHE:
+# What resources to cache
+# Can be specific files or complete directories
+javascript.js
+
+NETWORK:
+#These resources will always be downloaded
+
+FALLBACK:
+#specify alternative url's for resources if server becoms unavailable
+#SomeDir/someresource.js   alternative_address.js

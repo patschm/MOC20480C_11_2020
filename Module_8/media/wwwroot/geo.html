@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        #pos {
+            width: 400px;
+            height: 300px;
+            border: solid 2px green;
+        }
+    </style>
+</head>
+<body>
+    <div id="pos"></div>
+    <button id="start">Start Following</button>
+
+    <hr />
+    <h1 id="h1"></h1>
+    <script>
+
+        // Once
+        navigator.geolocation.getCurrentPosition(onSuccess, onerror, { enableHighAccuracy: true, timeout: 10000 });
+        function onSuccess(e)
+        {
+            var posString = "";
+            posString += "latitude: " + e.coords.latitude + "</br>";
+            posString += "longitude: " + e.coords.longitude + "</br>";
+            posString += "accuracy: " + e.coords.accuracy + "</br>";
+            posString += "headind: " + e.coords.heading + "</br>";
+            posString += "speed: " + e.coords.speed + "</br>";
+            posString += "altitude: " + e.coords.altitude + "</br>";
+
+            document.getElementById("pos").innerHTML = posString;
+        }
+        function onError(e)
+        {
+            document.getElementById("pos").innerHTML = e.message + " " + e.code;
+        }
+
+        // Movement
+        (function ()
+        {
+            document.getElementById("start").addEventListener("click", onStartFollow, true);
+            var watchID = 0;
+
+            function onStartFollow()
+            {
+                if (watchID === 0)
+                {
+                    watchID = navigator.geolocation.watchPosition(onSuccess, onerror, { enableHighAccuracy: true, maximumAge: 10000 });
+                    document.getElementById("start").innerText = "Stop Following";
+                }
+                else
+                {
+                    navigator.geolocation.clearWatch(watchID);
+                    document.getElementById("start").innerText = "Start Following";
+                }
+            }
+        })();
+
+        // Visibility checks. 
+        document.addEventListener("visibilitychange", function () { document.title = document.visibilityState; }, false);
+
+        // Network check
+        var h1 = document.getElementById("h1");
+        h1.innerText = navigator.onLine ? "Online" : "Offline";
+        window.addEventListener("online", function () { h1.innerText = "hello!. I'm now online"; }, false);
+        window.addEventListener("offline", function () { h1.innerText = "Bye! I'm now offline"; }, false);
+    </script>
+</body>
+</html>
