@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <input type="number" id="nr_a" />
+    <input type="number" id="nr_b" />
+    <hr />
+    <button id="btn_multiply">Multiply</button>
+    <input type="number" id="nr_result" />
+    <br />
+    <button id="btn_divide">Divide</button>
+    <input type="number" id="nr_result1" />
+
+
+    <script type="text/javascript">
+        (function () {
+            document.getElementById("btn_multiply").addEventListener("click", doMultiply, false);
+            document.getElementById("btn_divide").addEventListener("click", doDivide, false);
+            var nr_a = document.getElementById("nr_a");
+            var nr_b = document.getElementById("nr_b");
+            var nr_result = document.getElementById("nr_result");
+            var nr_result1 = document.getElementById("nr_result1");
+
+            var sharedWorker = new SharedWorker("shared-worker.js");
+            sharedWorker.port.addEventListener("message", handleMessage, false);
+            sharedWorker.port.start();
+
+            function handleMessage(evt) {
+                switch (evt.data.operation) {
+                    case "MULTIPLY":
+                        {
+                            nr_result.value = evt.data.result;
+                            break;
+                        }
+                    case "DIVIDE":
+                        {
+                            nr_result1.value = evt.data.result;
+                            break;
+                        }
+                }
+            }
+
+            function doMultiply() {
+                var data = {};
+                data.a = parseFloat(nr_a.value);
+                data.b = parseFloat(nr_b.value);
+                data.operation = "MULTIPLY";
+                sharedWorker.port.postMessage(data);
+            }
+            function doDivide() {
+                var data = {};
+                data.a = parseFloat(nr_a.value);
+                data.b = parseFloat(nr_b.value);
+                data.operation = "DIVIDE";
+                sharedWorker.port.postMessage(data);
+            }
+        })();
+    </script>
+</body>
+</html>

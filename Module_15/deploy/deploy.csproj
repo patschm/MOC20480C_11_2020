@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\requirejs\main.js" />
+    <None Include="wwwroot\requirejs\mod_1.js" />
+  </ItemGroup>
+
 </Project>

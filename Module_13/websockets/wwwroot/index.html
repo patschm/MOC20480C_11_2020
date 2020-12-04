@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <title></title>
 
@@ -7,33 +7,34 @@
 <body>
     <h1 id="h1"></h1>
     <button id="btn">Register</button>
+    <br/>
+    <button id="btn2">Unregister</button>
+
     <script type="text/javascript">
-        (function ()
-        {
+        (function () {
             var h1 = document.getElementById("h1");
             var btn = document.getElementById("btn");
             btn.addEventListener("click", register, false);
+            var btn2 = document.getElementById("btn2");
+            btn2.addEventListener("click", e => wss.close(1000, "Bye!"), false);
 
             var wss;
-            function register()
-            {
-                wss = new WebSocket("wss://localhost:5001/ws");
-                if (wss.readyState === wss.OPEN)
-                {
+            function register() {
+                wss = new WebSocket("ws://localhost:5000/ws");
+                if (wss.readyState === wss.OPEN) {
                     alert("ready to go");
                 }
-                wss.onopen = function ()
-                {
+                wss.onopen = function () {
                     alert("trying to open a connection");
+                    wss.send("Hallo");
                 }
-                wss.onerror = function (e)
-                {
+                wss.onerror = function (e) {
                     alert(e.data);
                 }
-                wss.onmessage = function (e)
-                {
+                wss.onmessage = function (e) {
                     h1.innerText = e.data;
                 }
+
             }
 
         })();

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <input type="number" id="nr_a" />
+    <input type="number" id="nr_b" />
+    <hr />
+    <button id="btn_add">Add</button>
+    <input type="number" id="nr_result" />
+    <br />
+    <button id="btn_subtract">Subtract</button>
+    <input type="number" id="nr_result1" />
+    <hr />
+    <a href="shared.html">More complex ops</a>
+
+    <script type="text/javascript">
+        (function ()
+        {
+            document.getElementById("btn_add").addEventListener("click", doAdd, false);
+            document.getElementById("btn_subtract").addEventListener("click", doSubtract, false);
+            var nr_a = document.getElementById("nr_a");
+            var nr_b = document.getElementById("nr_b");
+            var nr_result = document.getElementById("nr_result");
+            var nr_result1 = document.getElementById("nr_result1");
+
+
+            var dedicatedWorker = new Worker("worker.js");
+            dedicatedWorker.onmessage = function (evt)
+            {
+                switch(evt.data.operation)
+                {
+                    case "ADD":
+                        {
+                            nr_result.value = evt.data.result;
+                            break;
+                        }
+                    case "SUBTRACT":
+                        {
+                            nr_result1.value = evt.data.result;
+                            break;
+                        }
+                }
+
+            }
+
+            
+            function doAdd()
+            {
+                var data = {};
+                data.a = parseFloat(nr_a.value);
+                data.b = parseFloat(nr_b.value);
+                data.operation = "ADD";
+                dedicatedWorker.postMessage(data);
+            }
+            function doSubtract()
+            {
+                var data = {};
+                data.a = parseFloat(nr_a.value);
+                data.b = parseFloat(nr_b.value);
+                data.operation = "SUBTRACT";
+                dedicatedWorker.postMessage(data);
+            }
+            
+        })();
+    </script>
+</body>
+</html>
