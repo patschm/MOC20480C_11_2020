@@ -1,0 +1,17 @@
+﻿$fc:blue;
+
+@mixin achter($ac) {
+    @if($ac == black)
+    {
+        background-color:white;
+    }
+    @else{
+        background-color:$ac;
+    }
+}
+
+.color
+{
+    color:$fc;
+    @include achter(black);
+}

@@ -1,5 +1,4 @@
 ﻿define('mod_1', ['require', 'exports'], function (require, exports) {
-    
     return {
         Person: class Person {
             constructor(name, age) {

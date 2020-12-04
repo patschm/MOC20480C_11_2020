@@ -32,7 +32,7 @@
                     alert(e.data);
                 }
                 wss.onmessage = function (e) {
-                    h1.innerText = e.data;
+                    h1.textContent = e.data;
                 }
 
             }

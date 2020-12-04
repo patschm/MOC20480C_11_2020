@@ -19,17 +19,5 @@ function messageHandler(evt)
                 self.postMessage(res);
                 break;
             }
-        case "MULTIPLY":
-            {
-                res.result = msg.a * msg.b;
-                self.postMessage(res);
-                break;
-            }
-        case "DIVIDE":
-            {
-                res.result = msg.a / msg.b;
-                self.postMessage(res);
-                break;
-            }
     }
 }

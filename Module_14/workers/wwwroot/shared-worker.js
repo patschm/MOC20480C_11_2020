@@ -1,6 +1,6 @@
 ﻿// Debug: chrome://inspect/#workers
 
-onconnect = function (e) {
+self.onconnect = function (e) {
     var port = e.ports[0];
     port.addEventListener("message", messageHandler, false);
     port.start();

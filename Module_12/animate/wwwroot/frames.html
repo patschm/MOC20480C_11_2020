@@ -62,7 +62,7 @@
             animation-duration: 12s;
             animation-delay: 2s;
             animation-timing-function: linear;
-            animation-iteration-count: 1;
+            animation-iteration-count: 2;
             animation-direction: alternate;
         }
     </style>
@@ -86,10 +86,13 @@
                 iterationCount++;
                 console.log(`Animation iteration count: ${iterationCount}`);
             });
+
             function onstart()
             {
-                ball.classList.add("ball");
-                ball.classList.add("animate");
+                let div = document.createElement("div");
+                document.body.appendChild(div);
+                div.classList.add("ball");
+                div.classList.add("animate");
             }
         })();
     </script>
